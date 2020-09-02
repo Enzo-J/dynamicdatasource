@@ -11,6 +11,10 @@ public class RibbonConsumerApplicationTests {
 
     @Test
     public void contextLoads() {
+//        com.alibaba.cloud.sentinel.feign.SentinelContractHolder
+//        fegin.context
+//        com.alibaba.cloud.sentinel.feign.SentinelContractHolder
+
     }
 
 }

@@ -2,6 +2,7 @@ package com.springboot.cloud.gateway.config;
 
 import com.springboot.cloud.gateway.service.impl.RouteService;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -15,12 +16,14 @@ import java.util.List;
 @Component
 @Primary
 @AllArgsConstructor
+@NoArgsConstructor
 @Slf4j
 public class SwaggerProvider implements SwaggerResourcesProvider {
     public static final String API_URI = "/v2/api-docs";
 
     @Autowired
-    private final RouteService routeService;
+    private  RouteService routeService;
+
 
     @Override
     public List<SwaggerResource> get() {

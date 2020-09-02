@@ -12,6 +12,27 @@
 - [java8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 - [maven](http://maven.apache.org/) 
 
+### 本地开发配置
+**启动项目前在本地配置环境变量**(重启idea或eclipse)
+
+RABBIT_MQ_HOST=192.168.1.73  
+REGISTER_HOST=192.168.1.73  
+REDIS_HOST=192.168.1.73  
+DATASOURCE_HOST=192.168.1.73  
+SENTINEL_DASHBOARD_HOST=192.168.1.73  
+
+**逐个启动如下项目**
+
+bus-server  
+organization  
+authorization-server  
+authentication-server  
+gateway-web  
+gateway-admin  
+admin
+
+
+
 ### 开发环境搭建
 
 linux和mac下可在项目根目录下执行 `./install.sh` 快速搭建开发环境。如要了解具体的步骤，请看如下文档。

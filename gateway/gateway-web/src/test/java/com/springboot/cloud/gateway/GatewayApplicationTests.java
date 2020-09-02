@@ -13,6 +13,8 @@ public class GatewayApplicationTests {
 
     @Test
     public void contextLoads() {
-
+//        com.alicp.jetcache
+//        com.alicp.jetcache.redis.lettuce.RedisLettuceCacheBuilder
+//        com.alicp.jetcache
     }
 }

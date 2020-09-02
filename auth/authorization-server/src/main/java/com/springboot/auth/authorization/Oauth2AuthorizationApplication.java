@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 public class Oauth2AuthorizationApplication {
     public static void main(String[] args) {
+
         SpringApplication.run(Oauth2AuthorizationApplication.class, args);
     }
 }

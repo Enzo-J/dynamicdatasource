@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages="com.alicp.jetcache.autoconfigure")
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @EnableMethodCache(basePackages = "com.springboot.cloud")

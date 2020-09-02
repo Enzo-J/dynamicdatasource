@@ -88,7 +88,7 @@ pom.xml
 <dependencies>
     <dependency>
         <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+        <artifactId></artifactId>
     </dependency>
 </dependencies>
 ```

@@ -8,12 +8,13 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfiguration;
 
-@SpringBootApplication(exclude = GatewayClassPathWarningAutoConfiguration.class)
+@SpringBootApplication(exclude = GatewayClassPathWarningAutoConfiguration.class,scanBasePackages="com.alicp.jetcache.autoconfigure")
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @EnableMethodCache(basePackages = "com.springboot.cloud")
 @EnableCreateCacheAnnotation
 public class GatewayAdminApplication {
+//    com.alibaba.cloud.sentinel.feign.SentinelContractHolder
     public static void main(String[] args) {
         SpringApplication.run(GatewayAdminApplication.class, args);
     }

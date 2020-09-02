@@ -11,6 +11,7 @@ public class ApplicationTests {
 
     @Test
     public void contextLoads() {
+//        com.alibaba.cloud.sentinel.feign.SentinelContractHolder
     }
 
 }

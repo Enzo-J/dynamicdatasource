@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.DefaultErrorWebExceptionHandler;
 import org.springframework.boot.web.reactive.error.ErrorAttributes;
 import org.springframework.context.ApplicationContext;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.*;
@@ -42,11 +41,12 @@ public class CustomErrorWebExceptionHandler extends DefaultErrorWebExceptionHand
     @Override
     protected Mono<ServerResponse> renderErrorResponse(ServerRequest request) {
         Map<String, Object> error = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
-        HttpStatus errorStatus = getHttpStatus(error);
+        int errorStatus =getHttpStatus(error);
         Throwable throwable = getError(request);
+
         return ServerResponse.status(errorStatus)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .body(BodyInserters.fromObject(gateWayExceptionHandlerAdvice.handle(throwable)));
-                //.doOnNext((resp) -> logError(request, errorStatus));
+                .body(BodyInserters.fromObject(gateWayExceptionHandlerAdvice.handle(throwable)))
+                .doOnNext((resp) -> logError(request, resp,throwable));
     }
 }

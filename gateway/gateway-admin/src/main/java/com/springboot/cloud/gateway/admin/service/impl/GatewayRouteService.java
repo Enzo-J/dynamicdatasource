@@ -42,6 +42,7 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
 
     @Override
     public boolean add(GatewayRoute gatewayRoute) {
+//        JetCacheAutoConfiguration
         boolean isSuccess = this.save(gatewayRoute);
         // 转化为gateway需要的类型，缓存到redis, 并事件通知各网关应用
         RouteDefinition routeDefinition = gatewayRouteToRouteDefinition(gatewayRoute);

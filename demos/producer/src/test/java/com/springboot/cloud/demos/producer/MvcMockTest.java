@@ -15,4 +15,5 @@ public class MvcMockTest {
     @Test
     public void testMethod() {
     }
+//    com.alibaba.cloud.sentinel.feign.SentinelContractHolder.parseAndValidateMetadata
 }

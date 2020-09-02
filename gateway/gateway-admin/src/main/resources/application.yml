@@ -40,16 +40,17 @@ jetcache:
   remote:
     # 默认永久的远程缓存
     default:
-      type: redis
+      type: redis.lettuce
+      uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
       keyConvertor: fastjson
-      valueEncoder: kryo
-      valueDecoder: kryo
-      poolConfig:
-        minIdle: 5
-        maxIdle: 20
-        maxTotal: 50
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
+#      valueEncoder: kryo
+#      valueDecoder: kryo
+#      poolConfig:
+#        minIdle: 5
+#        maxIdle: 20
+#        maxTotal: 50
+#      host: ${REDIS_HOST:localhost}
+#      port: ${REDIS_PORT:6379}
 
 management:
   endpoints:
