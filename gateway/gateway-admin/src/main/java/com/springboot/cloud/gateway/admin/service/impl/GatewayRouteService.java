@@ -9,7 +9,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.cloud.gateway.admin.config.BusConfig;
 import com.springboot.cloud.gateway.admin.dao.GatewayRouteMapper;
-import com.springboot.cloud.gateway.admin.entity.ov.GatewayRouteVo;
+import com.springboot.cloud.gateway.admin.entity.vo.GatewayRouteVo;
 import com.springboot.cloud.gateway.admin.entity.param.GatewayRouteQueryParam;
 import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 import com.springboot.cloud.gateway.admin.events.EventSender;

@@ -3,7 +3,7 @@ package com.springboot.cloud.gateway.admin.rest;
 import com.springboot.cloud.common.core.entity.vo.Result;
 import com.springboot.cloud.gateway.admin.entity.form.GatewayRouteForm;
 import com.springboot.cloud.gateway.admin.entity.form.GatewayRouteQueryForm;
-import com.springboot.cloud.gateway.admin.entity.ov.GatewayRouteVo;
+import com.springboot.cloud.gateway.admin.entity.vo.GatewayRouteVo;
 import com.springboot.cloud.gateway.admin.entity.param.GatewayRouteQueryParam;
 import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 import com.springboot.cloud.gateway.admin.service.IGatewayRouteService;

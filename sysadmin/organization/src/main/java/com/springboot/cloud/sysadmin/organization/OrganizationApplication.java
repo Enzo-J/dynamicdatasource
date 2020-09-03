@@ -7,13 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication(scanBasePackages="com.alicp.jetcache.autoconfigure")
+@SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @EnableMethodCache(basePackages = "com.springboot.cloud")
 @EnableCreateCacheAnnotation
 public class OrganizationApplication {
     public static void main(String[] args) {
+
         SpringApplication.run(OrganizationApplication.class, args);
     }
 }

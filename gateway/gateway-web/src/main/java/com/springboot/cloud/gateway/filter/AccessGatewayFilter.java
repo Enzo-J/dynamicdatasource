@@ -46,6 +46,27 @@ public class AccessGatewayFilter implements GlobalFilter {
      * @param chain
      * @return
      */
+//    @Override
+//    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+//        ServerHttpRequest request = exchange.getRequest();
+//        String authentication = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+//        String method = request.getMethodValue();
+//        String url = request.getPath().value();
+//        log.debug("url:{},method:{},headers:{}", url, method, request.getHeaders());
+//        //不需要网关签权的url
+//        if (authService.ignoreAuthentication(url)) {
+//            return chain.filter(exchange);
+//        }
+//
+//        /**
+//         * 鉴权模块调用有问题，暂时放开限制，感觉是被限流了。
+//         */
+//
+//        return chain.filter(exchange);
+//
+//
+//
+//    }
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
@@ -58,7 +79,10 @@ public class AccessGatewayFilter implements GlobalFilter {
             return chain.filter(exchange);
         }
 
+
+
         //调用签权服务看用户是否有权限，若有权限进入下一个filter
+
         if (permissionService.permission(authentication, url, method)) {
             ServerHttpRequest.Builder builder = request.mutate();
             //TODO 转发的请求都加上服务间认证token
@@ -69,7 +93,6 @@ public class AccessGatewayFilter implements GlobalFilter {
         }
         return unauthorized(exchange);
     }
-
     /**
      * 提取jwt token中的数据，转为json
      *

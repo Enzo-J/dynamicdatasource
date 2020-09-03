@@ -1,6 +1,6 @@
 package com.springboot.cloud.gateway.admin.service;
 
-import com.springboot.cloud.gateway.admin.entity.ov.GatewayRouteVo;
+import com.springboot.cloud.gateway.admin.entity.vo.GatewayRouteVo;
 import com.springboot.cloud.gateway.admin.entity.param.GatewayRouteQueryParam;
 import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 

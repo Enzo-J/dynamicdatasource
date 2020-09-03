@@ -16,5 +16,6 @@ public class GatewayApplicationTests {
 //        com.alicp.jetcache
 //        com.alicp.jetcache.redis.lettuce.RedisLettuceCacheBuilder
 //        com.alicp.jetcache
+//        org.springframework.boot.autoconfigure.http.HttpMessageConverters
     }
 }

@@ -1,4 +1,4 @@
-package com.springboot.cloud.gateway.admin.entity.ov;
+package com.springboot.cloud.gateway.admin.entity.vo;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

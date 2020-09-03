@@ -7,14 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(exclude = GatewayClassPathWarningAutoConfiguration.class,scanBasePackages="com.alicp.jetcache.autoconfigure")
+@SpringBootApplication(exclude = GatewayClassPathWarningAutoConfiguration.class)
+
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @EnableMethodCache(basePackages = "com.springboot.cloud")
 @EnableCreateCacheAnnotation
+@ComponentScan(basePackages={"com.alicp.jetcache.autoconfigure","com.springboot.cloud.gateway.admin"})
 public class GatewayAdminApplication {
-//    com.alibaba.cloud.sentinel.feign.SentinelContractHolder
     public static void main(String[] args) {
         SpringApplication.run(GatewayAdminApplication.class, args);
     }

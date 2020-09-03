@@ -67,6 +67,9 @@ jetcache:
       type: redis.lettuce
       uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
       keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      expireAfterWriteInMillis: 43200000
     #      type: redis
 #      expireAfterWriteInMillis: 43200000
 #      keyConvertor: fastjson
@@ -83,6 +86,9 @@ jetcache:
       type: redis.lettuce
       uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
       keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      expireAfterWriteInMillis: 7200000
 #      type: redis
 #      expireAfterWriteInMillis: 7200000
 #      keyConvertor: fastjson
@@ -99,6 +105,9 @@ jetcache:
       type: redis.lettuce
       uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
       keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      expireAfterWriteInMillis: 300000
 #      type: redis
 #      expireAfterWriteInMillis: 300000
 #      keyConvertor: fastjson

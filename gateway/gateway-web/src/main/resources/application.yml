@@ -43,7 +43,8 @@ spring:
 
 feign:
   sentinel:
-    enabled: true
+#    enabled: true
+    enabled: false
   okhttp:
     enabled: true
 
@@ -61,7 +62,12 @@ jetcache:
     default:
       type: redis.lettuce
       keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
       uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
+
+
+
 #      type: redis
 #      keyConvertor: fastjson
 #      valueEncoder: kryo

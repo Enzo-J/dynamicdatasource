@@ -43,6 +43,8 @@ jetcache:
       type: redis.lettuce
       uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
       keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
 #      valueEncoder: kryo
 #      valueDecoder: kryo
 #      poolConfig:
