@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+  redis:
+    database: 1
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:root}
+    timeout: 1000
+
+  jackson:
+    time-zone: GMT+8
+    #日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      #格式化输出
+      indent_output: true
+      #忽略无法转换的对象
+      fail_on_empty_beans: false
+    #设置空如何序列化
+    defaultPropertyInclusion: NON_EMPTY
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+    parser:
+      #允许出现特殊字符和转义符
+      allow_unquoted_control_chars: true
+      #允许出现单引号
+      allow_single_quotes: true
+    # swagger配置
+swagger:
+  enabled: true
+logging:
+  #日志配置文件位置
+  config: classpath:logback-spring.xml
+  #日志打印位置，这里是默认在项目根路径下
+  path: /u01/SZRW/redis-server/log
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

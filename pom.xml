@@ -20,22 +20,30 @@
         <module>monitor</module>
         <module>sysadmin</module>
         <module>demos</module>
+        <module>component</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-
-
             <!--支持Spring Boot 2.1.X-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.7.RELEASE</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-
+            <dependency>
+                <groupId>com.springboot.cloud</groupId>
+                <artifactId>cloud</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.springboot.cloud</groupId>
+                <artifactId>core</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <!--支持Spring cloud 版本-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -44,11 +52,10 @@
                 <scope>import</scope>
             </dependency>
 
-
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.1.RELEASE</version>
+                <version>${alibaba-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -56,23 +63,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-                <version>2.2.1.RELEASE</version>
-            </dependency>
-
-
-
-
-
-            <!--Swagger2 - RESTful API文档-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>2.9.2</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>2.9.2</version>
+                <version>${alibaba-sentinel.version}</version>
             </dependency>
             <!--jetcache缓存 -->
             <dependency>
@@ -137,6 +128,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <lombok.version>1.18.10</lombok.version>
+        <spring.boot.version>2.2.7.RELEASE</spring.boot.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <maven-plugin.version>2.1.4.RELEASE</maven-plugin.version>
+        <alibaba-sentinel.version>2.2.1.RELEASE</alibaba-sentinel.version>
+        <alibaba-dependencies.version>2.1.1.RELEASE</alibaba-dependencies.version>
+        <spring.cloud.version>0.0.1-SNAPSHOT</spring.cloud.version>
+        <knife4j.version>2.0.5</knife4j.version>
     </properties>
 
     <dependencies>
@@ -159,12 +159,18 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!--日志跟踪-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        <!--        &lt;!&ndash;日志跟踪&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
+        <!--        </dependency>-->
         <!--消息总线-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -181,7 +187,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>${lombok.version}</version>
             <scope>compile</scope>
         </dependency>
         <!--测试框架-->
@@ -196,6 +202,17 @@
             <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--swagger文档-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -203,7 +220,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.1.4.RELEASE</version>
+                <version>${maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
