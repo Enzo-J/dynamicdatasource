@@ -1,0 +1,35 @@
+server:
+    port: 8182
+spring:
+  freemarker:
+    template-loader-path: classpath:/template
+    charset: UTF-8
+    suffix: ftl
+    cache: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,httptrace
+config:
+  project:
+    fscommand_screen:
+      url: jdbc:mysql://192.168.1.188:3306/fscommand_screen?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+      username: root
+      password: szwg2018
+    fscommand_screen_common:
+      url: jdbc:mysql://192.168.1.188:3306/fscommand_screen?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+      username: root
+      password: szwg2018
+  common:
+    defaultLoc: D:/output
+    packagePrefix: com.szwg.datasource
+    logLoc: D:/output/log
+    port: 8000
+    nacosServerAddr: 192.168.137.17:8848
+    nacosUsername: nacos
+    nacosPassword: nacos
+    harborServerAddr: 192.168.137.15
+    harborProjectName: library
+    harborUsername: admin
+    harborPassword: Harbor12345

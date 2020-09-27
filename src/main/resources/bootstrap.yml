@@ -1,0 +1,15 @@
+nacos:
+  server-addr: 192.168.137.17:8848
+  username: nacos
+  password: nacos
+spring:
+  application:
+    name: DynamicDatasource
+  cloud:
+    nacos:
+      server-addr: ${nacos.server-addr}
+      username: ${nacos.username}
+      password: ${nacos.password}
+      config:
+        refresh-enabled: true
+        file-extension: yml
