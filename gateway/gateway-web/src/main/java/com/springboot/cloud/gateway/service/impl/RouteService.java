@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteDefinition;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -26,7 +27,8 @@ public class RouteService implements IRouteService {
 
     @Autowired
 //    private StringRedisTemplate stringRedisTemplate;
-    private RedisClient stringRedisTemplate;
+    private RedisTemplate redisTemplate;
+//    private RedisClient stringRedisTemplate;
 
     @CreateCache(name = GATEWAY_ROUTES, cacheType = CacheType.REMOTE)
     private Cache<String, RouteDefinition> gatewayRouteCache;
@@ -36,10 +38,10 @@ public class RouteService implements IRouteService {
     @PostConstruct
     private void loadRouteDefinition() {
         log.info("loadRouteDefinition, 开始初使化路由");
-        List<String> keys=  stringRedisTemplate.connect().sync().keys(GATEWAY_ROUTES + "*");
+        Set<String> keys = redisTemplate.keys(GATEWAY_ROUTES + "*");
 //        Set<String> gatewayKeys =  stringRedisTemplate.keys(GATEWAY_ROUTES + "*").map(a->a.toString()).collect(Collectors.toSet()).block();
 
-        Set<String>  gatewayKeys = new HashSet<>(keys);
+        Set<String> gatewayKeys = new HashSet<>(keys);
         if (CollectionUtils.isEmpty(gatewayKeys)) {
             return;
         }
