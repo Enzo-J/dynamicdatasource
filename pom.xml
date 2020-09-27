@@ -78,8 +78,6 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 
@@ -197,11 +195,11 @@
             <scope>test</scope>
         </dependency>
         <!--test数据库-->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <!--swagger文档-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>

@@ -1,8 +1,6 @@
-package com.springboot.cloud.redis.exception;
+package com.springboot.cloud.common.core.exception;
 
 import com.springboot.cloud.common.core.entity.vo.Result;
-import com.springboot.cloud.common.core.exception.BaseException;
-import com.springboot.cloud.common.core.exception.SystemErrorType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

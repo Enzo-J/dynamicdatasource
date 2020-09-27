@@ -3,9 +3,11 @@ package com.springboot.cloud.redis;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@ComponentScan({"com.springboot.cloud"})
 public class RedisServerApiApplication {
 
     public static void main(String[] args) {
