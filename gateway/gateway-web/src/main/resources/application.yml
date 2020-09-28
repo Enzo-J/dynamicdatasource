@@ -1,12 +1,14 @@
 spring:
+  profiles:
+    active: dev
   rabbitmq:
-    host: ${RABBIT_MQ_HOST:localhost}
-    port: ${RABBIT_MQ_PORT:5672}
-    username: ${RABBIT_MQ_USERNAME:guest}
-    password: ${RABBIT_MQ_PASSWORD:guest}
+    host: ${RABBIT_MQ_HOST:172.16.0.6}
+    port: ${RABBIT_MQ_PORT:31713}
+    username: ${RABBIT_MQ_USERNAME:user}
+    password: ${RABBIT_MQ_PASSWORD:123456}
   redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
+    host: ${REDIS_HOST:172.16.0.8}
+    port: ${REDIS_PORT:31268}
     #password: ${REDIS_PASSWORD:}
     lettuce:
       pool:
@@ -64,7 +66,7 @@ jetcache:
       keyConvertor: fastjson
       valueEncoder: kryo
       valueDecoder: kryo
-      uri: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}/
+      uri: redis://${REDIS_HOST:172.16.0.8}:${REDIS_PORT:31268}/
 
 
 

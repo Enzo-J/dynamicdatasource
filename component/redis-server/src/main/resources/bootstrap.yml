@@ -7,15 +7,15 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
+        server-addr: ${REGISTER_HOST:172.16.0.6}:${REGISTER_PORT:30000}
 #        namespace: mj
       config:
-        server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
+        server-addr: ${REGISTER_HOST:172.16.0.6}:${REGISTER_PORT:30000}
         file-extension: yml
 #        namespace: mj
     sentinel:
       transport:
-        dashboard: ${SENTINEL_DASHBOARD_HOST:localhost}:${SENTINEL_DASHBOARD_PORT:8021}
+        dashboard: ${SENTINEL_DASHBOARD_HOST:192.168.160.129}:${SENTINEL_DASHBOARD_PORT:8021}
     bus:
       trace:
         enabled: true

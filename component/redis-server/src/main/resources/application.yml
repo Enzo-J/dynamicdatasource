@@ -3,9 +3,9 @@ spring:
     active: dev
   redis:
     database: 1
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:root}
+    host: ${REDIS_HOST:172.16.0.8}
+    port: ${REDIS_PORT:31268}
+#    password: ${REDIS_PASSWORD:root}
     timeout: 1000
 
   jackson:
